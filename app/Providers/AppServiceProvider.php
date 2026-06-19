@@ -37,14 +37,26 @@ class AppServiceProvider extends ServiceProvider
             app()->isProduction(),
         );
 
+        //local pass min is 4
         Password::defaults(fn (): ?Password => app()->isProduction()
-            ? Password::min(4)
+            ? Password::min(12)
                 ->mixedCase()
                 ->letters()
                 ->numbers()
                 ->symbols()
                 ->uncompromised()
-            : null,
+            : Password::min(4),
         );
+
+        //null below will fallback to default password which is 8. can be found in Password.php
+        // Password::defaults(fn (): ?Password => app()->isProduction()
+        //     ? Password::min(4)
+        //         ->mixedCase()
+        //         ->letters()
+        //         ->numbers()
+        //         ->symbols()
+        //         ->uncompromised()
+        //     : null,
+        // );
     }
 }
