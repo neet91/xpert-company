@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 Route::inertia('/', 'Welcome')->name('home');
 
 Route::prefix('{current_team}')
-    ->middleware(['auth', 'verified', EnsureTeamMembership::class])
+    ->middleware(['auth', EnsureTeamMembership::class])//'verified'
     ->group(function () {
         Route::get('dashboard', DashboardController::class)->name('dashboard');
     });
