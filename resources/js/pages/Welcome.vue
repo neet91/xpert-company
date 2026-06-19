@@ -2,7 +2,7 @@
 import { Head, Link, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
 import { dashboard, login } from '@/routes';
-import { register } from '@/routes';
+// import { register } from '@/routes';
 
 const page = usePage();
 const dashboardUrl = computed(() =>
@@ -43,7 +43,7 @@ const dashboardUrl = computed(() =>
                     >
                         Register
                     </Link>
-                    !-->
+                    -->
                 </template>
             </nav>
         </header>
